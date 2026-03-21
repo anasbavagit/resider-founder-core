@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const stages = ["Idea", "Pre-launch", "Launching", "Operating"];
 const supportOptions = [
