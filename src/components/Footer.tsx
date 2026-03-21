@@ -9,7 +9,7 @@ const Footer = () =>
         <a href="#founder-form" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
           For Founders
         </a>
-        <a href="#expert-form" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+        <a href="/experts" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
           For Experts
         </a>
       </div>
