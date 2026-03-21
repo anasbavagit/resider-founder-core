@@ -29,7 +29,7 @@ const Navbar = () => {
       }>
       
       <div className="max-container section-padding flex h-16 items-center justify-between">
-        <a href="#" className="heading-display text-foreground text-2xl">
+        <a href="#" className="heading-display text-foreground text-3xl">
           Resider.io
         </a>
 
