@@ -14,7 +14,102 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      expert_submissions: {
+        Row: {
+          advises_founders: string | null
+          created_at: string
+          email: string
+          expert_type: string | null
+          expertise: string | null
+          id: string
+          industry: string | null
+          linkedin: string | null
+          name: string
+          phone: string | null
+          role: string | null
+          summary: string | null
+          why_join: string | null
+          years_experience: number | null
+        }
+        Insert: {
+          advises_founders?: string | null
+          created_at?: string
+          email: string
+          expert_type?: string | null
+          expertise?: string | null
+          id?: string
+          industry?: string | null
+          linkedin?: string | null
+          name: string
+          phone?: string | null
+          role?: string | null
+          summary?: string | null
+          why_join?: string | null
+          years_experience?: number | null
+        }
+        Update: {
+          advises_founders?: string | null
+          created_at?: string
+          email?: string
+          expert_type?: string | null
+          expertise?: string | null
+          id?: string
+          industry?: string | null
+          linkedin?: string | null
+          name?: string
+          phone?: string | null
+          role?: string | null
+          summary?: string | null
+          why_join?: string | null
+          years_experience?: number | null
+        }
+        Relationships: []
+      }
+      founder_submissions: {
+        Row: {
+          company: string | null
+          contact_method: string | null
+          created_at: string
+          description: string | null
+          email: string
+          id: string
+          in_uae: string | null
+          industry: string | null
+          name: string
+          phone: string | null
+          stage: string | null
+          support_needed: string[] | null
+        }
+        Insert: {
+          company?: string | null
+          contact_method?: string | null
+          created_at?: string
+          description?: string | null
+          email: string
+          id?: string
+          in_uae?: string | null
+          industry?: string | null
+          name: string
+          phone?: string | null
+          stage?: string | null
+          support_needed?: string[] | null
+        }
+        Update: {
+          company?: string | null
+          contact_method?: string | null
+          created_at?: string
+          description?: string | null
+          email?: string
+          id?: string
+          in_uae?: string | null
+          industry?: string | null
+          name?: string
+          phone?: string | null
+          stage?: string | null
+          support_needed?: string[] | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
