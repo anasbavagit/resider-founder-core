@@ -51,7 +51,7 @@ const Hero = () => {
               </a>
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
-              <a href="#expert-form">Join as an Early Expert</a>
+              <a href="/experts">Join as an Early Expert</a>
             </Button>
           </div>
 

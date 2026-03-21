@@ -41,7 +41,7 @@ const ExpertNetwork = () => {
               style={{ animationDelay: "300ms" }}
             >
               <Button variant="accent" size="lg" asChild>
-                <a href="#expert-form">
+                <a href="/experts">
                   Join as an Early Expert <ArrowRight size={16} />
                 </a>
               </Button>
