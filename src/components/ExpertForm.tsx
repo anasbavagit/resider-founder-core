@@ -191,8 +191,12 @@ const ExpertForm = () => {
             <textarea name="why_join" rows={3} className={inputClass} placeholder="What draws you to a curated, standards-led network…" />
           </div>
 
-          <Button type="submit" variant="accent" size="lg" className="w-full">
-            Join as an Early Expert
+          {errors.form && (
+            <p className="text-xs text-destructive text-center">{errors.form}</p>
+          )}
+
+          <Button type="submit" variant="accent" size="lg" className="w-full" disabled={submitting}>
+            {submitting ? "Submitting…" : "Join as an Early Expert"}
           </Button>
         </form>
       </div>

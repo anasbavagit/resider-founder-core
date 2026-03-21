@@ -234,8 +234,12 @@ const FounderForm = () => {
             </select>
           </div>
 
-          <Button type="submit" variant="hero" size="lg" className="w-full">
-            Request Alignment
+          {errors.form && (
+            <p className="text-xs text-destructive text-center">{errors.form}</p>
+          )}
+
+          <Button type="submit" variant="hero" size="lg" className="w-full" disabled={submitting}>
+            {submitting ? "Submitting…" : "Request Alignment"}
           </Button>
         </form>
       </div>
