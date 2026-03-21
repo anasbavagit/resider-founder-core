@@ -22,6 +22,7 @@ const FounderForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [support, setSupport] = useState<string[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
 
   const toggleSupport = (s: string) =>
     setSupport((prev) =>
