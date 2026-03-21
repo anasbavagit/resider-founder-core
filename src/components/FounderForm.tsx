@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const stages = ["Idea", "Pre-launch", "Launching", "Operating"];
 const supportOptions = [
@@ -21,13 +22,14 @@ const FounderForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [support, setSupport] = useState<string[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
 
   const toggleSupport = (s: string) =>
     setSupport((prev) =>
       prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]
     );
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const newErrors: Record<string, string> = {};
@@ -44,6 +46,26 @@ const FounderForm = () => {
     }
 
     setErrors({});
+    setSubmitting(true);
+
+    const { error } = await supabase.from("founder_submissions").insert({
+      name,
+      email,
+      phone: (form.get("phone") as string)?.trim() || null,
+      company: (form.get("company") as string)?.trim() || null,
+      stage: (form.get("stage") as string) || null,
+      industry: (form.get("industry") as string)?.trim() || null,
+      in_uae: (form.get("in_uae") as string) || null,
+      support_needed: support.length > 0 ? support : null,
+      description: (form.get("description") as string)?.trim() || null,
+      contact_method: (form.get("contact_method") as string) || null,
+    });
+
+    setSubmitting(false);
+    if (error) {
+      setErrors({ form: "Something went wrong. Please try again." });
+      return;
+    }
     setSubmitted(true);
   };
 
@@ -212,8 +234,12 @@ const FounderForm = () => {
             </select>
           </div>
 
-          <Button type="submit" variant="hero" size="lg" className="w-full">
-            Request Alignment
+          {errors.form && (
+            <p className="text-xs text-destructive text-center">{errors.form}</p>
+          )}
+
+          <Button type="submit" variant="hero" size="lg" className="w-full" disabled={submitting}>
+            {submitting ? "Submitting…" : "Request Alignment"}
           </Button>
         </form>
       </div>

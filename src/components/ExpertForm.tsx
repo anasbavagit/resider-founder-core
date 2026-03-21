@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const expertTypes = ["Operator", "Consultant", "Hybrid"];
 
@@ -9,8 +10,9 @@ const ExpertForm = () => {
   const { ref, isVisible } = useScrollReveal();
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const newErrors: Record<string, string> = {};
@@ -25,7 +27,31 @@ const ExpertForm = () => {
       setErrors(newErrors);
       return;
     }
+
     setErrors({});
+    setSubmitting(true);
+
+    const yearsRaw = (form.get("years") as string)?.trim();
+    const { error } = await supabase.from("expert_submissions").insert({
+      name,
+      email,
+      phone: (form.get("phone") as string)?.trim() || null,
+      linkedin: (form.get("linkedin") as string)?.trim() || null,
+      role: (form.get("role") as string)?.trim() || null,
+      expertise: (form.get("expertise") as string)?.trim() || null,
+      industry: (form.get("industry") as string)?.trim() || null,
+      years_experience: yearsRaw ? parseInt(yearsRaw, 10) : null,
+      expert_type: (form.get("expert_type") as string) || null,
+      advises_founders: (form.get("advises") as string) || null,
+      summary: (form.get("summary") as string)?.trim() || null,
+      why_join: (form.get("why_join") as string)?.trim() || null,
+    });
+
+    setSubmitting(false);
+    if (error) {
+      setErrors({ form: "Something went wrong. Please try again." });
+      return;
+    }
     setSubmitted(true);
   };
 
@@ -165,8 +191,12 @@ const ExpertForm = () => {
             <textarea name="why_join" rows={3} className={inputClass} placeholder="What draws you to a curated, standards-led network…" />
           </div>
 
-          <Button type="submit" variant="accent" size="lg" className="w-full">
-            Join as an Early Expert
+          {errors.form && (
+            <p className="text-xs text-destructive text-center">{errors.form}</p>
+          )}
+
+          <Button type="submit" variant="accent" size="lg" className="w-full" disabled={submitting}>
+            {submitting ? "Submitting…" : "Join as an Early Expert"}
           </Button>
         </form>
       </div>
