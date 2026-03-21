@@ -29,7 +29,7 @@ const FounderForm = () => {
       prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]
     );
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const newErrors: Record<string, string> = {};
@@ -46,6 +46,26 @@ const FounderForm = () => {
     }
 
     setErrors({});
+    setSubmitting(true);
+
+    const { error } = await supabase.from("founder_submissions").insert({
+      name,
+      email,
+      phone: (form.get("phone") as string)?.trim() || null,
+      company: (form.get("company") as string)?.trim() || null,
+      stage: (form.get("stage") as string) || null,
+      industry: (form.get("industry") as string)?.trim() || null,
+      in_uae: (form.get("in_uae") as string) || null,
+      support_needed: support.length > 0 ? support : null,
+      description: (form.get("description") as string)?.trim() || null,
+      contact_method: (form.get("contact_method") as string) || null,
+    });
+
+    setSubmitting(false);
+    if (error) {
+      setErrors({ form: "Something went wrong. Please try again." });
+      return;
+    }
     setSubmitted(true);
   };
 

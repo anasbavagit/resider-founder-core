@@ -12,7 +12,7 @@ const ExpertForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const newErrors: Record<string, string> = {};
@@ -27,7 +27,31 @@ const ExpertForm = () => {
       setErrors(newErrors);
       return;
     }
+
     setErrors({});
+    setSubmitting(true);
+
+    const yearsRaw = (form.get("years") as string)?.trim();
+    const { error } = await supabase.from("expert_submissions").insert({
+      name,
+      email,
+      phone: (form.get("phone") as string)?.trim() || null,
+      linkedin: (form.get("linkedin") as string)?.trim() || null,
+      role: (form.get("role") as string)?.trim() || null,
+      expertise: (form.get("expertise") as string)?.trim() || null,
+      industry: (form.get("industry") as string)?.trim() || null,
+      years_experience: yearsRaw ? parseInt(yearsRaw, 10) : null,
+      expert_type: (form.get("expert_type") as string) || null,
+      advises_founders: (form.get("advises") as string) || null,
+      summary: (form.get("summary") as string)?.trim() || null,
+      why_join: (form.get("why_join") as string)?.trim() || null,
+    });
+
+    setSubmitting(false);
+    if (error) {
+      setErrors({ form: "Something went wrong. Please try again." });
+      return;
+    }
     setSubmitted(true);
   };
 
