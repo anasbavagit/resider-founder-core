@@ -5,12 +5,18 @@ const Footer = () =>
       <p className="text-sm text-muted-foreground">
         © {new Date().getFullYear()} Resider.io Founder infrastructure for the UAE.
       </p>
-      <div className="flex gap-6">
+      <div className="flex flex-wrap gap-6">
         <a href="#founder-form" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
           For Founders
         </a>
         <a href="/experts" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
           For Experts
+        </a>
+        <a href="#problem" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          Problem
+        </a>
+        <a href="#solution" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          Solution
         </a>
       </div>
     </div>
