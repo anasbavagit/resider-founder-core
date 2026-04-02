@@ -73,7 +73,7 @@ const Navbar = () => {
             </a>
         )}
           <Button variant="hero" size="sm" className="mt-3 w-full" asChild>
-            <a href="#founder-form" onClick={() => setMobileOpen(false)}>
+            <a href="/#founder-form" onClick={() => setMobileOpen(false)}>
               Request Alignment Call
             </a>
           </Button>
