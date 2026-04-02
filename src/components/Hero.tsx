@@ -45,7 +45,7 @@ const Hero = () => {
             style={{ animationDelay: "550ms" }}>
             
             <Button variant="hero" size="xl" asChild>
-              <a href="#founder-form">
+              <a href="/#founder-form">
                 Request Alignment Call
                 <ArrowRight size={18} />
               </a>
