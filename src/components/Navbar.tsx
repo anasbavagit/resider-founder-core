@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Founders", href: "#founder-form" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Founders", href: "/#founder-form" },
   { label: "Experts", href: "/experts" },
-  { label: "FAQ", href: "#faq" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 
@@ -45,7 +45,7 @@ const Navbar = () => {
             </a>
           )}
           <Button variant="hero" size="sm" asChild>
-            <a href="#founder-form">Request Alignment Call</a>
+            <a href="/#founder-form">Request Alignment Call</a>
           </Button>
         </div>
 
@@ -73,7 +73,7 @@ const Navbar = () => {
             </a>
         )}
           <Button variant="hero" size="sm" className="mt-3 w-full" asChild>
-            <a href="#founder-form" onClick={() => setMobileOpen(false)}>
+            <a href="/#founder-form" onClick={() => setMobileOpen(false)}>
               Request Alignment Call
             </a>
           </Button>
