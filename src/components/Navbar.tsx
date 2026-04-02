@@ -45,7 +45,7 @@ const Navbar = () => {
             </a>
           )}
           <Button variant="hero" size="sm" asChild>
-            <a href="#founder-form">Request Alignment Call</a>
+            <a href="/#founder-form">Request Alignment Call</a>
           </Button>
         </div>
 
