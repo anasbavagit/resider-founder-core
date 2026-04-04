@@ -6,11 +6,20 @@ const Footer = () =>
         © {new Date().getFullYear()} Resider.io Founder infrastructure for the UAE.
       </p>
       <div className="flex flex-wrap gap-6">
+        <a href="/how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          How It Works
+        </a>
+        <a href="/expertise" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          Expertise
+        </a>
         <a href="/#founder-form" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
           For Founders
         </a>
         <a href="/experts" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
           For Experts
+        </a>
+        <a href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          About
         </a>
         <a href="/#problem" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
           Problem
