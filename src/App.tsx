@@ -10,6 +10,7 @@ import About from "./pages/About.tsx";
 import Expertise from "./pages/Expertise.tsx";
 import HowItWorksPage from "./pages/HowItWorksPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ScrollToHash from "./components/ScrollToHash.tsx";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToHash />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/experts" element={<Experts />} />
