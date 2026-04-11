@@ -31,23 +31,22 @@ const Navbar = () => {
       }>
       
       <div className="max-container section-padding flex h-16 items-center justify-between">
-        <a href="#" className="heading-display text-foreground text-3xl">
+        <Link to="/" className="heading-display text-foreground text-3xl">
           Resider.io
-        </a>
+        </Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) =>
-          <a
+          <Link
             key={link.href}
-            href={link.href}
+            to={link.href}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
-            
               {link.label}
-            </a>
+            </Link>
           )}
           <Button variant="hero" size="sm" asChild>
-            <a href="/#founder-form">Request Alignment Call</a>
+            <Link to="/#founder-form">Request Alignment Call</Link>
           </Button>
         </div>
 
@@ -65,19 +64,18 @@ const Navbar = () => {
       {mobileOpen &&
       <div className="md:hidden bg-background/95 backdrop-blur-md border-b border-border px-6 pb-6 pt-2 animate-fade-in">
           {navLinks.map((link) =>
-        <a
+        <Link
           key={link.href}
-          href={link.href}
+          to={link.href}
           onClick={() => setMobileOpen(false)}
           className="block py-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
-          
               {link.label}
-            </a>
+            </Link>
         )}
           <Button variant="hero" size="sm" className="mt-3 w-full" asChild>
-            <a href="/#founder-form" onClick={() => setMobileOpen(false)}>
+            <Link to="/#founder-form" onClick={() => setMobileOpen(false)}>
               Request Alignment Call
-            </a>
+            </Link>
           </Button>
         </div>
       }
