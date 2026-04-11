@@ -1,21 +1,17 @@
 
 
-## Fix Hash Navigation for #founder-form
+## Update Founder Form Support Options to Match Execution Layers
 
-**Problem:** The "Founders" nav link (`/#founder-form`) doesn't scroll to the form when navigating from other pages. The browser navigates to `/` but doesn't process the hash scroll because the component hasn't rendered yet.
+**Problem:** The current form lists 9 support options (Residency, Business Setup, Structuring, Licensing, Compliance, Banking, Operations, Early Execution, Industry Expert Access) which don't align with the standard 6 execution layers.
 
-**Solution:** Add a `ScrollToHash` component inside `BrowserRouter` that listens for hash changes via `useLocation` and scrolls to the target element after a short delay (to allow rendering).
+**Change:** Update `supportOptions` in `src/components/FounderForm.tsx` to use exactly the 6 execution layers:
 
-### Changes
+1. Structuring
+2. Licensing
+3. Compliance
+4. Operations
+5. Banking
+6. Early Execution
 
-**1. Create `src/components/ScrollToHash.tsx`**
-A small component using `useLocation` from React Router. On every location change, if `location.hash` exists, wait ~100ms for render, then `document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })`. Also scroll to top when navigating to pages without a hash.
-
-**2. Update `src/App.tsx`**
-Add `<ScrollToHash />` inside `<BrowserRouter>` just above `<Routes>`.
-
-**3. Update `src/components/Navbar.tsx`**
-Convert `<a href="...">` tags to React Router `<Link>` (or use `useNavigate`) so navigation stays client-side. For `/#founder-form`, use `Link to="/#founder-form"` or handle it with `navigate('/', { hash: '#founder-form' })`. This ensures React Router processes the navigation rather than a full page reload.
-
-No database changes needed.
+This is a single-line array change — no other files affected.
 
