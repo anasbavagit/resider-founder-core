@@ -6,15 +6,12 @@ import { supabase } from "@/integrations/supabase/client";
 
 const stages = ["Idea", "Pre-launch", "Launching", "Operating"];
 const supportOptions = [
-  "Residency",
-  "Business Setup",
   "Structuring",
   "Licensing",
   "Compliance",
-  "Banking",
   "Operations",
+  "Banking",
   "Early Execution",
-  "Industry Expert Access",
 ];
 
 const FounderForm = () => {
