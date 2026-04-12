@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
-const stages = ["Idea", "Pre-launch", "Launching", "Operating"];
 const supportOptions = [
   "Structuring",
   "Licensing",
@@ -49,13 +48,7 @@ const FounderForm = () => {
       name,
       email,
       phone: (form.get("phone") as string)?.trim() || null,
-      company: (form.get("company") as string)?.trim() || null,
-      stage: (form.get("stage") as string) || null,
-      industry: (form.get("industry") as string)?.trim() || null,
-      in_uae: (form.get("in_uae") as string) || null,
       support_needed: support.length > 0 ? support : null,
-      description: (form.get("description") as string)?.trim() || null,
-      contact_method: (form.get("contact_method") as string) || null,
     });
 
     setSubmitting(false);
@@ -136,53 +129,11 @@ const FounderForm = () => {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label className="block text-xs font-semibold text-foreground mb-1.5">
-                Phone / WhatsApp
-              </label>
-              <input name="phone" className={inputClass} placeholder="+971..." />
-            </div>
-            <div>
-              <label className="block text-xs font-semibold text-foreground mb-1.5">
-                Company or Project Name
-              </label>
-              <input name="company" className={inputClass} placeholder="Your project" />
-            </div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label className="block text-xs font-semibold text-foreground mb-1.5">
-                Stage
-              </label>
-              <select name="stage" className={inputClass}>
-                <option value="">Select stage</option>
-                {stages.map((s) => (
-                  <option key={s} value={s}>{s}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="block text-xs font-semibold text-foreground mb-1.5">
-                Industry
-              </label>
-              <input name="industry" className={inputClass} placeholder="e.g., Fintech, SaaS" />
-            </div>
-          </div>
-
           <div>
             <label className="block text-xs font-semibold text-foreground mb-1.5">
-              Are you already in the UAE?
+              Phone / WhatsApp
             </label>
-            <div className="flex gap-4">
-              {["Yes", "No"].map((opt) => (
-                <label key={opt} className="flex items-center gap-2 text-sm text-foreground cursor-pointer">
-                  <input type="radio" name="in_uae" value={opt} className="accent-accent" />
-                  {opt}
-                </label>
-              ))}
-            </div>
+            <input name="phone" className={inputClass} placeholder="+971..." />
           </div>
 
           <div>
@@ -205,30 +156,6 @@ const FounderForm = () => {
                 </button>
               ))}
             </div>
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold text-foreground mb-1.5">
-              Briefly describe what you're building
-            </label>
-            <textarea
-              name="description"
-              rows={3}
-              className={inputClass}
-              placeholder="A short summary of your business concept…"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold text-foreground mb-1.5">
-              Preferred contact method
-            </label>
-            <select name="contact_method" className={inputClass}>
-              <option value="">Select</option>
-              <option value="Email">Email</option>
-              <option value="WhatsApp">WhatsApp</option>
-              <option value="Phone">Phone</option>
-            </select>
           </div>
 
           {errors.form && (
