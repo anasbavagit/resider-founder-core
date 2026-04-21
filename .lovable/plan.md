@@ -1,19 +1,39 @@
 
 
-## Remove Expert Network Section
+## Shorten the Founder Alignment Request Form
 
-Remove the "Expert network — A curated network built on execution depth" section from the homepage/Experts page.
+**Current state:** The form has 10 fields across 7 rows — that's a lot of friction for a founder just trying to book a call. Many of these details (industry, stage, UAE status, description) can be gathered during the actual alignment call.
 
-### Change
+### Proposed Streamlined Form
 
-**`src/pages/Experts.tsx`** — remove the `<ExpertNetwork />` component usage and its import.
+**Keep (4 fields, 2 rows):**
+1. **Full Name** * — required
+2. **Email** * — required  
+3. **Phone / WhatsApp** — optional, but useful for quick contact
+4. **Support needed** — the 6 execution layer chips (quick taps, no typing)
 
-The remaining Experts page flow becomes:
-1. `ExpertStandards` (standards & trust)
-2. `ExpertForm` (signup)
+**Remove from initial form:**
+- Company or Project Name
+- Stage (Idea/Pre-launch/Launching/Operating)
+- Industry
+- Are you already in the UAE?
+- Briefly describe what you're building
+- Preferred contact method
 
-### Notes
+These are all better discussed on the alignment call itself. The form becomes: name, email, phone, tap your needs, submit. A founder can complete it in under 15 seconds.
 
-- `src/components/ExpertNetwork.tsx` will be left in place (unused) in case you want to reintroduce it later. Say the word if you'd prefer it deleted.
-- No other pages reference `ExpertNetwork`, so no further cleanup is required.
+### Layout
+
+```text
+Row 1:  [Full Name *]     [Email *]
+Row 2:  [Phone / WhatsApp]
+Row 3:  [Support chips: Structuring | Licensing | Compliance | Operations | Banking | Early Execution]
+Row 4:  [Request Alignment] button
+```
+
+### Technical Details
+
+- **Single file change:** `src/components/FounderForm.tsx` — remove the 6 fields and their grid wrappers
+- **Database:** No migration needed. The `founder_submissions` table columns stay as-is (nullable columns will just be `null`)
+- The confirmation state stays unchanged
 
