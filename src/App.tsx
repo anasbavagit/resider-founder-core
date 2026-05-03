@@ -28,6 +28,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/experts" element={<Experts />} />
           <Route path="/experts/signup" element={<ExpertSignup />} />
+          <Route path="/experts/complete-profile" element={<ExpertCompleteProfile />} />
+          <Route path="/admin/experts" element={<AdminExperts />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/about" element={<About />} />
           <Route path="/expertise" element={<Expertise />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
