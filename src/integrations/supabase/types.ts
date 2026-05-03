@@ -16,49 +16,67 @@ export type Database = {
     Tables: {
       expert_submissions: {
         Row: {
+          admin_notes: string | null
           advises_founders: string | null
+          auth_user_id: string | null
           created_at: string
+          credential_document_url: string | null
           email: string
           expert_type: string | null
           expertise: string | null
           id: string
+          id_document_url: string | null
           industry: string | null
           linkedin: string | null
           name: string
           phone: string | null
+          reviewed_at: string | null
           role: string | null
+          status: string
           summary: string | null
           why_join: string | null
           years_experience: number | null
         }
         Insert: {
+          admin_notes?: string | null
           advises_founders?: string | null
+          auth_user_id?: string | null
           created_at?: string
+          credential_document_url?: string | null
           email: string
           expert_type?: string | null
           expertise?: string | null
           id?: string
+          id_document_url?: string | null
           industry?: string | null
           linkedin?: string | null
           name: string
           phone?: string | null
+          reviewed_at?: string | null
           role?: string | null
+          status?: string
           summary?: string | null
           why_join?: string | null
           years_experience?: number | null
         }
         Update: {
+          admin_notes?: string | null
           advises_founders?: string | null
+          auth_user_id?: string | null
           created_at?: string
+          credential_document_url?: string | null
           email?: string
           expert_type?: string | null
           expertise?: string | null
           id?: string
+          id_document_url?: string | null
           industry?: string | null
           linkedin?: string | null
           name?: string
           phone?: string | null
+          reviewed_at?: string | null
           role?: string | null
+          status?: string
           summary?: string | null
           why_join?: string | null
           years_experience?: number | null
@@ -110,15 +128,42 @@ export type Database = {
         }
         Relationships: []
       }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "expert" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -245,6 +290,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "expert", "user"],
+    },
   },
 } as const
