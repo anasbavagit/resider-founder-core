@@ -6,6 +6,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Experts from "./pages/Experts.tsx";
 import ExpertSignup from "./pages/ExpertSignup.tsx";
+import ExpertCompleteProfile from "./pages/ExpertCompleteProfile.tsx";
+import AdminExperts from "./pages/AdminExperts.tsx";
+import Auth from "./pages/Auth.tsx";
 import About from "./pages/About.tsx";
 import Expertise from "./pages/Expertise.tsx";
 import HowItWorksPage from "./pages/HowItWorksPage.tsx";
@@ -25,6 +28,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/experts" element={<Experts />} />
           <Route path="/experts/signup" element={<ExpertSignup />} />
+          <Route path="/experts/complete-profile" element={<ExpertCompleteProfile />} />
+          <Route path="/admin/experts" element={<AdminExperts />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/about" element={<About />} />
           <Route path="/expertise" element={<Expertise />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
