@@ -31,7 +31,7 @@ const Navbar = () => {
       }>
       
       <div className="max-container section-padding flex h-16 items-center justify-between">
-        <Link to="/" className="heading-display text-foreground text-3xl">
+        <Link to="/" className="heading-display text-foreground text-4xl">
           Resider.io
         </Link>
 
