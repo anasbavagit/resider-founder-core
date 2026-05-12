@@ -66,7 +66,7 @@ const HowItWorksPage = () => {
             <span className={`inline-block text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-4 ${heroVisible ? "animate-fade-up" : "opacity-0"}`}>
               How It Works
             </span>
-            <h1 className={`heading-display text-foreground text-[clamp(2rem,5vw,3.5rem)] mb-6 ${heroVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
+            <h1 className={`heading-display text-foreground text-[clamp(2.5rem,6vw,4.5rem)] mb-6 ${heroVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
               From first conversation to launch-ready — a structured process.
             </h1>
             <p className={`text-lg text-muted-foreground leading-relaxed ${heroVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>
@@ -83,7 +83,7 @@ const HowItWorksPage = () => {
             <span className={`inline-block text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-4 ${founderVisible ? "animate-fade-up" : "opacity-0"}`}>
               For Founders
             </span>
-            <h2 className={`heading-display text-foreground text-[clamp(1.75rem,4vw,3rem)] ${founderVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
+            <h2 className={`heading-display text-foreground text-[clamp(2rem,5vw,3.5rem)] ${founderVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
               The Founder Journey
             </h2>
           </div>
@@ -119,7 +119,7 @@ const HowItWorksPage = () => {
             <span className={`inline-block text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-4 ${expertVisible ? "animate-fade-up" : "opacity-0"}`}>
               For Experts
             </span>
-            <h2 className={`heading-display text-foreground text-[clamp(1.75rem,4vw,3rem)] ${expertVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
+            <h2 className={`heading-display text-foreground text-[clamp(2rem,5vw,3.5rem)] ${expertVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
               The Expert Pathway
             </h2>
           </div>
@@ -150,7 +150,7 @@ const HowItWorksPage = () => {
             <span className={`inline-block text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-4 ${timelineVisible ? "animate-fade-up" : "opacity-0"}`}>
               What to Expect
             </span>
-            <h2 className={`heading-display text-foreground text-[clamp(1.75rem,4vw,3rem)] mb-6 ${timelineVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
+            <h2 className={`heading-display text-foreground text-[clamp(2rem,5vw,3.5rem)] mb-6 ${timelineVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
               Typical Timeline
             </h2>
             <div className={`grid grid-cols-3 gap-4 mb-12 ${timelineVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>

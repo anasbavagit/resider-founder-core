@@ -42,7 +42,7 @@ const About = () => {
             <span className="inline-block text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-4 animate-fade-up">
               About Resider
             </span>
-            <h1 className="heading-display text-foreground text-[clamp(2rem,5vw,3.5rem)] mb-6 animate-fade-up" style={{ animationDelay: "100ms" }}>
+            <h1 className="heading-display text-foreground text-[clamp(2.5rem,6vw,4.5rem)] mb-6 animate-fade-up" style={{ animationDelay: "100ms" }}>
               Founder infrastructure for the UAE — built on trust, precision, and execution depth.
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed animate-fade-up" style={{ animationDelay: "200ms" }}>
@@ -60,7 +60,7 @@ const About = () => {
               <span className={`inline-block text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-4 ${missionVisible ? "animate-fade-up" : "opacity-0"}`}>
                 Our Mission
               </span>
-              <h2 className={`heading-display text-foreground text-[clamp(1.75rem,4vw,2.75rem)] mb-6 ${missionVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
+              <h2 className={`heading-display text-foreground text-[clamp(2rem,5vw,3.5rem)] mb-6 ${missionVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
                 We believe the right foundation determines everything that follows.
               </h2>
               <p className={`text-muted-foreground leading-relaxed mb-4 ${missionVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>
@@ -89,7 +89,7 @@ const About = () => {
             <span className={`inline-block text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-4 ${valuesVisible ? "animate-fade-up" : "opacity-0"}`}>
               How We Operate
             </span>
-            <h2 className={`heading-display text-foreground text-[clamp(1.75rem,4vw,3rem)] ${valuesVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
+            <h2 className={`heading-display text-foreground text-[clamp(2rem,5vw,3.5rem)] ${valuesVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
               Principles that define our platform.
             </h2>
           </div>
@@ -118,7 +118,7 @@ const About = () => {
             <span className={`inline-block text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-4 ${whyVisible ? "animate-fade-up" : "opacity-0"}`}>
               Why the UAE
             </span>
-            <h2 className={`heading-display text-foreground text-[clamp(1.75rem,4vw,3rem)] mb-6 ${whyVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
+            <h2 className={`heading-display text-foreground text-[clamp(2rem,5vw,3.5rem)] mb-6 ${whyVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
               The world's fastest-growing founder ecosystem demands better infrastructure.
             </h2>
             <p className={`text-muted-foreground leading-relaxed mb-6 ${whyVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>

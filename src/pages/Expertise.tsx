@@ -101,7 +101,7 @@ const Expertise = () => {
             <span className={`inline-block text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-4 ${heroVisible ? "animate-fade-up" : "opacity-0"}`}>
               Expertise Areas
             </span>
-            <h1 className={`heading-display text-foreground text-[clamp(2rem,5vw,3.5rem)] mb-6 ${heroVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
+            <h1 className={`heading-display text-foreground text-[clamp(2.5rem,6vw,4.5rem)] mb-6 ${heroVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "100ms" }}>
               Six execution layers. Every capability founders need.
             </h1>
             <p className={`text-lg text-muted-foreground leading-relaxed ${heroVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>

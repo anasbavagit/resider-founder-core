@@ -49,7 +49,7 @@ const FAQSection = () => {
               FAQ
             </span>
             <h2
-              className={`heading-display text-foreground text-[clamp(1.75rem,4vw,3rem)] ${
+              className={`heading-display text-foreground text-[clamp(2rem,5vw,3.5rem)] ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
               style={{ animationDelay: "100ms" }}

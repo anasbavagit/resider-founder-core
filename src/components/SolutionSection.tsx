@@ -17,7 +17,7 @@ const SolutionSection = () => {
             The solution
           </span>
           <h2
-            className={`heading-display text-[clamp(1.75rem,4vw,3rem)] mb-6 ${
+            className={`heading-display text-[clamp(2rem,5vw,3.5rem)] mb-6 ${
             isVisible ? "animate-fade-up" : "opacity-0"}`
             }
             style={{ animationDelay: "100ms" }}>

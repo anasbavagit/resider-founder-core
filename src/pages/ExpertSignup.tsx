@@ -11,7 +11,7 @@ const ExpertSignup = () => (
           <span className="inline-block text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-3">
             Expert Network · Waitlist
           </span>
-          <h1 className="font-serif text-[clamp(1.75rem,4vw,2.75rem)] leading-tight text-foreground mb-3">
+          <h1 className="heading-display text-[clamp(2.5rem,6vw,4.5rem)] text-foreground mb-3">
             Apply to join the network
           </h1>
           <p className="text-muted-foreground text-sm max-w-md mx-auto">
