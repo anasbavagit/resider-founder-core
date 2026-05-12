@@ -21,7 +21,7 @@ const Hero = () => {
 
           {/* Headline */}
           <h1
-            className="heading-display text-foreground text-[clamp(2.5rem,6vw,4.5rem)] mb-6 opacity-0 animate-fade-up"
+            className="heading-display text-foreground text-[clamp(2.75rem,7vw,5rem)] mb-6 opacity-0 animate-fade-up"
             style={{ animationDelay: "250ms" }}>
             
             Start right.
